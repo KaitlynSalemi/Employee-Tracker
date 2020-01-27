@@ -23,7 +23,7 @@ function whatDo(){
     inquirer
         .prompt({
             name: "action",
-            type: "rawlist",
+            type: "list",
             message: "What would you like to do?",
             choices: [
               "Add a Department, Role, or Employee?",
@@ -55,7 +55,7 @@ function addWhat(){
         .prompt([
             {
                 name: "add",
-                type: "rawlist",
+                type: "list",
                 message: "What would you like to add?",
                 choices: [
                     "Department",
@@ -146,7 +146,7 @@ function viewWhat(){
     inquirer
         .prompt({
             name: "view",
-            type: "rawlist",
+            type: "list",
             message: "What data would you like to view?",
             choices: [
               "Department",
@@ -186,7 +186,7 @@ function updateRoles(){
         .prompt ([
             {
                 name: "updateRole",
-                type: "rawlist",
+                type: "list",
                 message: "What is the id of the role you would like to update?",
                 choices: ["1", "2", "3", "4", "5"]
             },
