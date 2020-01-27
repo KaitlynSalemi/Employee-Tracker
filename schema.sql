@@ -29,5 +29,5 @@ VALUES ("production"), ("development"), ("human resource"), ("marketing"), ("pur
 INSERT INTO role (title, salary, department_id)
 VALUES ("CEO", 200000, 1), ("COO", 30000, 2), ("CFO", 60000, 3), ("CIO", 750000, 4), ("CTO", 600000, 5);
 
-INSERT INTO role (first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("James", "Smith", 1, 6), ("Mary", "Johnson", 2, 7), ("Patricia", "Williamson", 3, 7), ("John", "Jones", 4, 6), ("Jennifer", "Miller", 5, 8);

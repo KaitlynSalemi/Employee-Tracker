@@ -112,8 +112,32 @@ function addWhat(){
                 message: "Manager ID: "
             }
         ])
-        .then(function(add){
-            console.log(add);
+        .then(function(answer){
+            // console.log(answer);
+            switch (answer.add) {
+                case "Department":
+                    connection.query("INSERT INTO department (name) VALUES (?);", [answer.department], function(err, res){
+                        console.log('Department added!');
+                        whatDo();
+                    })
+                break;
+        
+                case "Role":
+                    // console.log(answer.roleTitle);
+                    connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?);", [answer.roleTitle, answer.salary, answer.departmentID], function(err, res){
+                        console.log('Role added!');
+                        whatDo();
+                    })
+                break;
+        
+                case "Employee":
+                    connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?);", [answer.firstname, answer.lastname, answer.roleID, answer.managerID], function(err, res){
+                        console.log('Employee added!');
+                        whatDo();
+                    })
+                break;
+            }
+            
               
         })
 }
