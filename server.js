@@ -149,14 +149,35 @@ function viewWhat(){
             type: "rawlist",
             message: "What data would you like to view?",
             choices: [
-              "Departments",
-              "Roles",
-              "Employees"
+              "Department",
+              "Role",
+              "Employee"
             ]
         })
         .then(function(answer){
-            console.log(answer);
+            // console.log(answer.view);
+            switch (answer.view) {
+                case "Department":
+                   connection.query("SELECT * FROM department", [answer.view], function(err, res){
+                        console.table(res);
+                        whatDo();
+                    });
+                break;
             
+                case "Role":
+                    connection.query("SELECT * FROM role", [answer.view], function(err, res){
+                        console.table(res);
+                        whatDo();
+                     });
+                break;
+        
+                case "Employee":
+                    connection.query("SELECT * FROM employee", [answer.view], function(err, res){
+                        console.table(res);
+                        whatDo();
+                     });
+                break;
+            }
         })
 }
 
@@ -167,12 +188,12 @@ function updateRoles(){
                 name: "updateRole",
                 type: "rawlist",
                 message: "What is the id of the role you would like to update?",
-                choices: ["1", "2", "3", "4", "5"]
+                choices: function
             },
             {
                 name: "newRole",
                 type: "input",
-                message: "What is the Role Title you would like to change is to?"
+                message: "What is the Role Title you would like to change it to?"
             }
         ])
         .then(function(answer){
