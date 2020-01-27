@@ -188,7 +188,7 @@ function updateRoles(){
                 name: "updateRole",
                 type: "rawlist",
                 message: "What is the id of the role you would like to update?",
-                choices: function
+                choices: ["1", "2", "3", "4", "5"]
             },
             {
                 name: "newRole",
@@ -198,6 +198,10 @@ function updateRoles(){
         ])
         .then(function(answer){
             console.log(answer);
+            connection.query("UPDATE role SET title = ? WHERE id = ?", [answer.newRole, answer.updateRole], function(err, res){
+                console.log("Role updated!");
+                whatDo();
+             });
             
         })
 }
